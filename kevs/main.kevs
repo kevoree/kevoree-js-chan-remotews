@@ -1,0 +1,13 @@
+add node0 : JavascriptNode
+add sync : WSGroup
+add node0.ticker : Ticker
+add node0.printer : ConsolePrinter
+add chan : RemoteWSChan
+
+attach node0 sync
+
+bind node0.ticker.tick chan
+bind node0.printer.input chan
+
+set chan.host = 'ws.kevoree.org'
+set chan.uuid = '123'

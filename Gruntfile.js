@@ -21,8 +21,7 @@ module.exports = function (grunt) {
 
         kevoree: {
             options: {
-                browserDevMode: true,
-                mergeLocalLibraries: ['/home/leiko/dev/kevoree-comp-msgsender']
+                browserDevMode: true
             }
         },
 

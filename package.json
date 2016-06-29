@@ -1,6 +1,6 @@
 {
   "name": "kevoree-chan-remotews",
-  "version": "5.3.1",
+  "version": "5.3.2",
   "main": "./lib/RemoteWSChan.js",
   "kevoree": {
     "package": "org.kevoree.library"
@@ -16,9 +16,11 @@
     "chan"
   ],
   "dependencies": {
+    "bufferutil": "^1.2.1",
     "kevoree-entities": "^8.0.0",
+    "utf-8-validate": "^1.2.1",
     "uuid": "^2.0.1",
-    "ws": "^0.8.0"
+    "ws": "^1.0.0"
   },
   "devDependencies": {
     "grunt": "^0.4.1",

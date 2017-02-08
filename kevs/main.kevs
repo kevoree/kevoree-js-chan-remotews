@@ -1,13 +1,17 @@
 add node0 : JavascriptNode/LATEST/LATEST
-add sync : WSGroup/LATEST/LATEST
+add sync : CentralizedWSGroup/1/LATEST
 add node0.ticker : Ticker/LATEST/LATEST
 add node0.printer : ConsolePrinter/LATEST/LATEST
-add chan : RemoteWSChan/1/LATEST
+add chan : RemoteWSChan/LATEST/LATEST
 
 attach node0 sync
 
 bind node0.ticker.tick chan
 bind node0.printer.input chan
+
+set node0.logLevel = 'DEBUG'
+
+set sync.isMaster/node0 = 'true'
 
 set chan.host = 'localhost'
 set chan.port = '3000'

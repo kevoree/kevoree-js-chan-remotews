@@ -1,11 +1,14 @@
 {
   "name": "kevoree-chan-remotews",
-  "version": "5.3.3-beta.2",
+  "version": "5.3.3-beta.3",
   "main": "./lib/RemoteWSChan.js",
   "description": "A Kevoree chan that uses an external remote WebSocket broadcast server to share messages",
   "kevoree": {
     "namespace": "kevoree"
   },
+	"browser": {
+		"ws": "./node_modules/rwebsocket/browser/ws-shim.js"
+	},
   "scripts": {
     "prepublish": "npm run lint && grunt",
     "postpublish": "grunt publish",
@@ -17,13 +20,9 @@
     "library",
     "chan"
   ],
-  "browser": {
-    "ws": "./browser/ws-shim.js"
-  },
   "dependencies": {
     "kevoree-entities": "^9.0.0",
-    "uuid": "^3.0.1",
-    "ws": "^1.1.1"
+    "rwebsocket": "^1.0.2"
   },
   "devDependencies": {
     "eslint": "^3.12.2",
@@ -48,7 +47,7 @@
   },
   "homepage": "https://github.com/kevoree/kevoree-js-chan-remotews",
   "eslintConfig": {
-		"root": true,
+    "root": true,
     "env": {
       "node": true
     },

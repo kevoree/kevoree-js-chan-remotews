@@ -5,20 +5,24 @@ var webpack = require('webpack');
 
 var pkg = require('./package.json');
 
-module.exports = {
+var config = {
   entry: './browser.js',
   output: {
     filename: path.join('browser', pkg.name + '.js')
   },
   module: {
-    loaders: [
-        { test: /\.json$/, loader: 'json' },
+    rules: [
+      { test: /\.json$/, loader: 'json-loader' }
     ]
   },
   externals: {
     'kevoree-library': 'KevoreeLibrary'
   },
-  plugins: [
-    new webpack.optimize.UglifyJsPlugin()
-  ]
+  plugins: []
 };
+
+if (process.env.NODE_ENV === 'production') {
+  config.plugins.push(new webpack.optimize.UglifyJsPlugin());
+}
+
+module.exports = config;

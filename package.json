@@ -1,16 +1,17 @@
 {
   "name": "kevoree-chan-remotews",
-  "version": "5.3.3-beta.3",
+  "version": "5.3.3-beta.4",
   "main": "./lib/RemoteWSChan.js",
   "description": "A Kevoree chan that uses an external remote WebSocket broadcast server to share messages",
   "kevoree": {
     "namespace": "kevoree"
   },
-	"browser": {
-		"ws": "./node_modules/rwebsocket/browser/ws-shim.js"
-	},
+  "browser": {
+    "ws": "./node_modules/rwebsocket/browser/ws-shim.js"
+  },
   "scripts": {
-    "prepublish": "npm run lint && grunt",
+    "build": "webpack",
+    "prepublish": "npm run lint && NODE_ENV=production grunt",
     "postpublish": "grunt publish",
     "lint": "eslint lib browser.js"
   },
@@ -21,20 +22,20 @@
     "chan"
   ],
   "dependencies": {
-    "kevoree-entities": "^9.0.0",
-    "rwebsocket": "^1.0.2"
+    "kevoree-entities": "^9.2.0",
+    "rwebsocket": "^1.1.0"
   },
   "devDependencies": {
-    "eslint": "^3.12.2",
+    "eslint": "^3.19.0",
     "grunt": "^1.0.1",
-    "grunt-kevoree": "^5.9.1",
-    "grunt-kevoree-genmodel": "^3.0.1",
-    "grunt-kevoree-registry": "^3.0.3",
-    "grunt-webpack": "^1.0.18",
+    "grunt-kevoree": "^6.0.0-alpha",
+    "grunt-kevoree-genmodel": "^3.0.2",
+    "grunt-kevoree-registry": "^4.0.0-alpha",
+    "grunt-webpack": "^3.0.0",
     "json-loader": "^0.5.4",
     "load-grunt-tasks": "^3.5.2",
-    "webpack": "^1.13.3",
-    "webpack-dev-server": "^1.16.2"
+    "webpack": "^2.6.0",
+    "webpack-dev-server": "^2.4.5"
   },
   "repository": {
     "type": "git",
@@ -45,14 +46,5 @@
   "bugs": {
     "url": "https://github.com/kevoree/kevoree-js-chan-remotews/issues"
   },
-  "homepage": "https://github.com/kevoree/kevoree-js-chan-remotews",
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "eslint:recommended"
-    ]
-  }
+  "homepage": "https://github.com/kevoree/kevoree-js-chan-remotews"
 }
